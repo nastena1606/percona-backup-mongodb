@@ -12,9 +12,6 @@ Architecture
 |mongod| instance. This includes replica set nodes that are currently secondaries
 and config server replica set nodes in a sharded cluster.
 
-There is no |pbm-agent| config file. Some configuration is required for the
-service script (e.g. ``systemd`` unit file) that will run it though. See
-:ref:`pbm.installation.service_init_scripts`.
 
 The backup and restore operations are triggered when the |pbm-agent| observes
 updates made to the PBM control collections by the |pbm.app| CLI. In a method similar to the way replica set members elect a new primary,
@@ -62,7 +59,7 @@ The |pbm.app| command line tool creates these collections as needed. You do not
 have to maintain these collections, but you should not drop them unnecessarily
 either. Dropping them during a backup will cause an abort of the backup.
 
-Filling the config collection is a prerequisite to using PBM for executing
+Filling the config collection is a prerequisite to using |PBM| for executing
 backups or restores. (See config page later.)
  
 .. _pbm.architecture.remote_storage:

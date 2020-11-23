@@ -29,7 +29,9 @@ Insert the whole |pbm| config from a YAML file
 If you are initializing a cluster or non-sharded replica set for the first time, it is simplest to write the whole config as YAML file and use the
 |pbm-config-file-set| method to upload all the values in one command.
 
-.. include:: .res/code-block/bash/pbm-config-file-set.txt
+.. code-block:: bash
+
+   $ pbm config --file pbm_config.yaml 
 
 Execute whilst connecting to config server replica set if it is a
 cluster. Otherwise just connect to the non-sharded replica set as normal. (See

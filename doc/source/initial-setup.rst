@@ -3,13 +3,16 @@
 Initial setup   
 ****************************************************************
 
-After you’ve installed |pbm-agent| on every server with the ``mongod`` node, set it up to run |PBM|.
+After you’ve installed |pbm-agent| on every server with the ``mongod`` node, perform initial setup to run |PBM|.
 
 The setup steps are the following:
 
 -	Configure authentication in MongoDB
 -	Use ``pbm CLI`` to insert the config information for remote backup storage
 -	Start |pbm-agent| process
+ 	
+.. contents::
+   :local:
 
 Configure authentication in MongoDB
 ================================================================================
@@ -118,19 +121,27 @@ The easiest way to provide remote backup storage configuration is to specify it 
 The storage configuration itself is out of scope of the present document. We assume that you have configured one of the :ref:`supported remote backup storages <storage.config>`.
 
 1. Create a config file (e.g. :file:`pbm_config.yaml`).
-2. Specify the storage information within. The sample configuration for Amazon AWS is the following:
+2. Specify the storage information within. 
+   
+   The following is the sample configuration for Amazon AWS:
    
    .. include:: .res/code-block/yaml/example-amazon-s3-storage.yaml
    
+   This is the sample configuration for filesystem storage:
+
+   .. include:: .res/code-block/yaml/example-local-file-system-store.yaml
+
    See more examples in :ref:`pbm.config.example_yaml`
 
 3. Insert the config file
    
-   .. include:: .res/code-block/bash/pbm-config-file-set.txt
+   .. code-block:: bash
+
+      $ pbm config --file pbm_config.yaml 
 
    For a sharded cluster, run this command whilst connecting to config server replica set. Otherwise connect to the non-sharded replica set as normal. 
 
- To learn more about |PBM| configuration, see :ref:`pbm.config`.
+To learn more about |PBM| configuration, see :ref:`pbm.config`.
  
 Start the |pbm-agent| process
 ==================================
