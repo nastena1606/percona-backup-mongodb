@@ -61,7 +61,7 @@ The ``mongos`` nodes are not involved in the backup process.
 
 The following diagram illustrates the backup flow.
 
-.. image:: _images/pbm-backup-shard.png
+.. image:: _static/images/pbm-backup-shard.png
 
 |
 
@@ -87,7 +87,6 @@ restore.
 .. important::
 
    Consider these important notes on restore operation:
-
 
    1. |pbm| is designed to be a full-database restore tool. As of version <=1.x it performs a full all-databases, all collections restore and does not offer an option to restore only a subset of collections in the backup, as MongoDB's ``mongodump`` tool does. But to avoid surprising ``mongodump`` users, as of versions 1.x |pbm| replicates mongodump's behavior to only drop collections in the backup. It does not drop collections that are created new after the time of the backup and before the restore. Run a ``db.dropDatabase()`` manually in all non-system databases (i.e. all databases except "local", "config" and "admin") before running |pbm-restore|if you want to guarantee that the post-restore database only includes collections that are in the backup.
    2. Whilst the restore is running, prevent clients from accessing the database. The data will naturally be incomplete whilst the restore is in progress, and writes the clients make cause the final restored data to differ from the backed-up data.
@@ -127,7 +126,7 @@ Note that you can restore a sharded backup only into a sharded environment. It c
 
 During the restore, ``pbm-agents`` write data to primary nodes in the cluster. The following diagram shows the restore flow.
 
-.. image:: _images/pbm-restore-shard.png
+.. image:: _static/images/pbm-restore-shard.png
 
 |
 

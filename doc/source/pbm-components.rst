@@ -17,7 +17,7 @@
 
 The following diagram illustrates how |PBM| components communicate with MongoDB. 
 
-.. image:: _images/pbm-architecture.png
+.. image:: _static/images/pbm-architecture.png
    :width: 400
    :align: center
    :alt: PBM components 

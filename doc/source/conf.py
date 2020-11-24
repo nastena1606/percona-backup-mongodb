@@ -32,10 +32,10 @@ sys.path.append(os.path.abspath('ext'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-author = "Percona LLC and/or its affiliates 2015-2020"
+author = "Percona LLC and/or its affiliates 2015-2021"
 extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo', 
               'sphinx.ext.coverage', 'sphinx.ext.ifconfig', 
-              'sphinx.ext.extlinks', 'psdom']
+              'sphinx.ext.extlinks', 'sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Percona Backup for MongoDB'
-copyright = 'Percona LLC and/or its affiliates 2009-2020'
+copyright = 'Percona LLC and/or its affiliates 2009-2021'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -93,7 +93,7 @@ exclude_patterns = []
 #
 # default_role = None
 
-primary_domain = 'psdom'
+#primary_domain = 'psdom'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #
@@ -110,7 +110,7 @@ primary_domain = 'psdom'
 show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'default'
 
 rst_prolog = '''
 .. role:: mysql(code)
@@ -133,16 +133,23 @@ extlinks = {'jirabug': ('https://jira.percona.com/browse/%s', '')
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'percona-theme'
+html_theme = 'sphinx_material'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+     'repo_url' : 'https://github.com/percona/percona-backup-mongodb',
+     'repo_name' : '/percona/percona-backup-mongodb',
+     'color_primary' : 'orange',
+     'color_accent' : 'grey',
+     'globaltoc_depth' : 2,
+     'globaltoc_collapse' : True  
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['.', './percona-theme']
+html_theme_path = ['.']
 
 # Redirect info for Edit on Github link
 html_context = {
@@ -164,13 +171,13 @@ html_short_title = ' '.join([project, version])
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = 'percona-server-logo.jpg'
+html_logo = 'percona-logo.jpg'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = None
+html_favicon = 'pecona-logo.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -187,7 +194,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-# html_last_updated_fmt = None
+html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -197,7 +204,7 @@ html_static_path = ['_static']
 # Custom sidebar templates, maps document names to template names.
 #
 html_sidebars = {
-        '**': ['localtoc.html', 'relations.html', 'sourcelink.html', 'edit.html'],
+        '**': ['logo-text.html','localtoc.html', 'globaltoc.html', 'searchbox.html', 'edit.html'],
         'using/windows': ['windowssidebar.html'],
 }
 
