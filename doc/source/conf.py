@@ -35,7 +35,7 @@ sys.path.append(os.path.abspath('ext'))
 author = "Percona LLC and/or its affiliates 2015-2020"
 extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo', 
               'sphinx.ext.coverage', 'sphinx.ext.ifconfig', 
-              'sphinx.ext.extlinks', 'psdom']
+              'sphinx.ext.extlinks']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -93,7 +93,7 @@ exclude_patterns = []
 #
 # default_role = None
 
-primary_domain = 'psdom'
+#primary_domain = 'psdom'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #
