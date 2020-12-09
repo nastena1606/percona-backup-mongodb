@@ -14,7 +14,9 @@ This document provides examples of using |pbm.app| commands to operate your back
 Listing all backups
 --------------------------------------------------------------------------------
 
-.. include:: .res/code-block/bash/pbm-list-mongodb-uri.txt
+.. code-block:: bash
+
+   $ pbm list
 
 .. admonition:: Sample output
 
